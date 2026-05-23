@@ -173,7 +173,8 @@ function matchGenre(tags,genre){
   const t=(tags||"").toLowerCase();
   return(GENRE_KW[genre]||[genre]).some(k=>t.includes(k));
 }
-function parseDate(s){const[y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d);}
+function parseDate(s){const[y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d,23,59,59);}
+
 function fmtDate(s){
   const dt=parseDate(s),today=new Date();today.setHours(0,0,0,0);
   const diff=Math.round((dt-today)/86400000);
