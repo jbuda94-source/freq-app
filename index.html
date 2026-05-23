@@ -191,9 +191,10 @@ function fmtTime(iso){
 }
 
 function render(){
-  const today=new Date();today.setHours(0,0,0,0);
-  const tom=new Date(today);tom.setDate(today.getDate()+1);
-  const da=new Date(today);da.setDate(today.getDate()+2);
+  const now=new Date();
+  const today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  const tom=new Date(now.getFullYear(),now.getMonth(),now.getDate()+1);
+  const da=new Date(now.getFullYear(),now.getMonth(),now.getDate()+2);
   const dow=today.getDay(),fri=(5-dow+7)%7;
   const wkS=new Date(today);wkS.setDate(today.getDate()+(fri===0?0:fri));
   const wkE=new Date(wkS);wkE.setDate(wkS.getDate()+2);
